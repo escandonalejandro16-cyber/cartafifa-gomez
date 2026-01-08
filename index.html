@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCL - Blue Fire Starball Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="ucl-bg-canvas"></canvas>
+
+    <div class="card-container" id="main-card">
+        <div class="bottom-shield"></div>
+        <canvas id="topCanvas" class="card-canvas"></canvas>
+        <canvas id="bottomCanvas" class="card-canvas"></canvas>
+
+        <div class="player-rating">
+            <span class="rating-value">85</span>
+            <span class="rating-pos">MC</span>
+        </div>
+
+        <img src="image copy.png" alt="UCL Logo" class="ucl-logo">
+        <img src="gomes.jpg" alt="Jugador" class="player-img-tag">
+
+        <div class="player-name">Santiago Gomez</div>
+
+        <div class="player-stats">
+            <div class="stat-col">
+                <span class="stat-num">89</span> <span class="stat-label">RIT</span>
+                <span class="stat-num">82</span> <span class="stat-label">REG</span>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-col">
+                <span class="stat-num">83</span> <span class="stat-label">TIR</span>
+                <span class="stat-num">85</span> <span class="stat-label">DEF</span>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-col">
+                <span class="stat-num">74</span> <span class="stat-label">PAS</span>
+                <span class="stat-num">89</span> <span class="stat-label">FÍS</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="iframe-fixed-animation">
+    <canvas id="iframeCanvas"></canvas>
+</div>
+
+<script src="iframe-animation.js"></script>
+<script src="fire-engine.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at center, #05163a 0%, #02040d 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial Black', sans-serif;
+    overflow: hidden;
+}
+
+#ucl-bg-canvas {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1;
+}
+
+.card-container {
+    position: relative;
+    width: 380px; height: 590px;
+    background: rgba(4, 10, 33, 0.9);
+    background-image: radial-gradient(circle at 50% 50%, rgba(0, 100, 255, 0.2) 0%, transparent 70%);
+    box-shadow: 0 0 50px rgba(0, 80, 255, 0.6);
+    border: 1px solid rgba(0, 242, 255, 0.4);
+    border-radius: 15px;
+    z-index: 10;
+}
+
+/* Bordes Neón "Calientes" */
+.card-container::before, .card-container::after {
+    content: '';
+    position: absolute;
+    top: 10%; width: 5px; height: 80%;
+    background: linear-gradient(to bottom, transparent, #00f2ff, #fff, #00f2ff, transparent);
+    box-shadow: 0 0 20px #00f2ff, 0 0 40px #0066ff;
+    z-index: 40;
+}
+.card-container::before { left: 0; border-radius: 0 10px 10px 0; }
+.card-container::after { right: 0; border-radius: 10px 0 0 10px; }
+
+.bottom-shield {
+    position: absolute; bottom: 0; width: 100%; height: 100px;
+    background: linear-gradient(to top, rgba(0, 10, 40, 0.9), transparent);
+    z-index: 15;
+    clip-path: polygon(0 20%, 50% 0, 100% 20%, 100% 100%, 0 100%);
+}
+
+.card-canvas { position: absolute; left: 0; width: 100%; z-index: 20; pointer-events: none; }
+#topCanvas { top: 0; height: 120px; }
+#bottomCanvas { bottom: 0; height: 80px; }
+
+.player-rating {
+    position: absolute; top: 90px; left: 30px; color: #fff; text-align: center; z-index: 25;
+    text-shadow: 0 0 15px #00f2ff;
+}
+.rating-value { font-size: 55px; display: block; line-height: 0.8; }
+.rating-pos { font-size: 28px; display: block; font-weight: bold; color: #00ffcc; }
+
+.ucl-logo {
+    position: absolute; top: 205px; left: 23px; width: 140px; height: 120px; z-index: 25;
+    filter: drop-shadow(0 0 10px #0066ff);
+}
+
+.player-img-tag {
+    position: absolute; top: 80px; right: -10px; width: 250px; height: 300px;
+    object-fit: contain; z-index: 5;
+    filter: drop-shadow(0 0 25px rgba(0, 150, 255, 0.6));
+}
+
+.player-name {
+    position: absolute; top: 375px; width: 100%; text-align: center;
+    color: #fff; font-size: 20px; text-transform: uppercase; z-index: 25;
+    letter-spacing: 2px;
+    background: linear-gradient(to bottom, #fff, #00f2ff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.player-stats {
+    position: absolute; bottom: 65px; width: 85%; left: 7.5%;
+    display: flex; justify-content: space-around; color: #fff; z-index: 25;
+}
+.stat-col { text-align: center; }
+.stat-label { font-size: 16px; display: block; color: #00ffcc; font-weight: bold; }
+.stat-num { font-size: 26px; display: block; font-weight: bold; }
+.divider { width: 1px; background: linear-gradient(to bottom, transparent, #00f2ff, transparent); }
+
+.iframe-fixed-animation {
+    position: fixed; /* Fijo respecto a la pantalla */
+    bottom: 20px;    /* Distancia desde abajo */
+    left: 20px;      /* Distancia desde la izquierda */
+    width: 250px;    /* Ajusta el tamaño que desees en pantalla */
+    height: 290px;
+    z-index: 9999;   /* Por encima de todo */
+    pointer-events: none; /* No interfiere con clics */
+}
+
+#iframeCanvas {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Efecto de brillo opcional para que combine con el estilo UCL */
+    filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.7));
+}
+
+/* Responsive: hacerlo más pequeño en móviles */
+@media (max-width: 600px) {
+    .iframe-fixed-animation {
+        width: 180px;
+        height: 180px;
+        bottom: 10px;
+        left: 10px;
+    }
+}
